@@ -28,7 +28,7 @@
 				<div class="alert alert-success">${mensagemInfo}</div>
 			</div>
 		</c:if>
-		<section class="container">
+		<section class="container" id="secao-ingredientes">
 			<jsp:include page="tabela-ingredientes.jsp"></jsp:include>
 		</section>
 		

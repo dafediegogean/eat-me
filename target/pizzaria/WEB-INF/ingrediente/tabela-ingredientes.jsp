@@ -4,8 +4,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-
-
 		  
 	 	  <table class="table table-hover table-condensed table-striped table-bordered">
 				<thead>
@@ -13,23 +11,25 @@
 						<td>#</td>
 						<td>Nome</td>
 						<td>Categoria</td>
+						<td>Deletar</td>
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach items="${ingredientes }" var="ingrediente">
-						<tr>
+						<tr data-id="${ingrediente.id }">
 							<td>${ingrediente.id }</td>
 							<td>${ingrediente.nome }</td>
 							<td>${ingrediente.categoria }</td>
+							<td><button type="button" class="btn btn-danger btn-deletar">Deletar</button> </td>
 						</tr>
 					</c:forEach>
 				</tbody>
 				<tfoot>
 					<tr>
-						<td colspan="3">Ingredientes cadastrados: ${ingredientes.size() }</td>
+						<td colspan="4">Ingredientes cadastrados: ${ingredientes.size() }</td>
 					</tr>
 					<tr>
-						<td colspan="3">
+						<td colspan="4">
 							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-ingrediente">
 								Cadastrar Igrediente
 							</button>

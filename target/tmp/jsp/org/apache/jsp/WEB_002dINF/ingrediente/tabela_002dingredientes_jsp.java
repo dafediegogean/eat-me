@@ -56,8 +56,6 @@ public final class tabela_002dingredientes_jsp extends org.apache.jasper.runtime
       out.write("\n");
       out.write("\n");
       out.write("\n");
-      out.write("\n");
-      out.write("\n");
       out.write("\t\t  \n");
       out.write("\t \t  <table class=\"table table-hover table-condensed table-striped table-bordered\">\n");
       out.write("\t\t\t\t<thead>\n");
@@ -65,6 +63,7 @@ public final class tabela_002dingredientes_jsp extends org.apache.jasper.runtime
       out.write("\t\t\t\t\t\t<td>#</td>\n");
       out.write("\t\t\t\t\t\t<td>Nome</td>\n");
       out.write("\t\t\t\t\t\t<td>Categoria</td>\n");
+      out.write("\t\t\t\t\t\t<td>Deletar</td>\n");
       out.write("\t\t\t\t\t</tr>\n");
       out.write("\t\t\t\t</thead>\n");
       out.write("\t\t\t\t<tbody>\n");
@@ -75,12 +74,12 @@ public final class tabela_002dingredientes_jsp extends org.apache.jasper.runtime
       out.write("\t\t\t\t</tbody>\n");
       out.write("\t\t\t\t<tfoot>\n");
       out.write("\t\t\t\t\t<tr>\n");
-      out.write("\t\t\t\t\t\t<td colspan=\"3\">Ingredientes cadastrados: ");
+      out.write("\t\t\t\t\t\t<td colspan=\"4\">Ingredientes cadastrados: ");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ingredientes.size() }", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("</td>\n");
       out.write("\t\t\t\t\t</tr>\n");
       out.write("\t\t\t\t\t<tr>\n");
-      out.write("\t\t\t\t\t\t<td colspan=\"3\">\n");
+      out.write("\t\t\t\t\t\t<td colspan=\"4\">\n");
       out.write("\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#modal-ingrediente\">\n");
       out.write("\t\t\t\t\t\t\t\tCadastrar Igrediente\n");
       out.write("\t\t\t\t\t\t\t</button>\n");
@@ -117,7 +116,9 @@ public final class tabela_002dingredientes_jsp extends org.apache.jasper.runtime
       if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
           out.write("\n");
-          out.write("\t\t\t\t\t\t<tr>\n");
+          out.write("\t\t\t\t\t\t<tr data-id=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ingrediente.id }", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\">\n");
           out.write("\t\t\t\t\t\t\t<td>");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ingrediente.id }", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\n");
@@ -127,6 +128,7 @@ public final class tabela_002dingredientes_jsp extends org.apache.jasper.runtime
           out.write("\t\t\t\t\t\t\t<td>");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ingrediente.categoria }", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\n");
+          out.write("\t\t\t\t\t\t\t<td><button type=\"button\" class=\"btn btn-danger btn-deletar\">Deletar</button> </td>\n");
           out.write("\t\t\t\t\t\t</tr>\n");
           out.write("\t\t\t\t\t");
           int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();

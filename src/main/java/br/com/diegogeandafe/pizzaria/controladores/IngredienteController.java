@@ -3,10 +3,13 @@ package br.com.diegogeandafe.pizzaria.controladores;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -23,7 +26,8 @@ public class IngredienteController {
 	
 	@Autowired
 	private IngredienteRepositorio ingredienteRepositorio;
-
+	
+	//WEB-INF/ingredientes/listagem.jsp
 	@RequestMapping(method=RequestMethod.GET)
 	public String listarIngredientes(Model model) {
 		//traz todos os dados
@@ -38,8 +42,8 @@ public class IngredienteController {
 		model.addAttribute("categorias", CategoriaDeIngrediente.values());
 		return "ingrediente/listagem";
 	}
-	//WEB-INF/ingredientes/listagem.jsp
 	
+
 	@RequestMapping(method=RequestMethod.POST)
 	public String salvarIngrediente(
 			@Valid @ModelAttribute Ingrediente ingrediente,
@@ -54,12 +58,25 @@ public class IngredienteController {
 		
 		//pega lista atraves do repositorio
 		model.addAttribute("ingredientes", ingredienteRepositorio.findAll());	
-				
 		//popula combo com array de categoria
-		model.addAttribute("categorias", CategoriaDeIngrediente.values());
-		
+		model.addAttribute("categorias", CategoriaDeIngrediente.values());	
 		return "ingrediente/tabela-ingredientes";
 	}
+	
+	//retorna view com ingredientes atualizados
+	//deleta via method DELETE passando o id
+	@RequestMapping(method=RequestMethod.DELETE, value="{id}")
+	public ResponseEntity<String>deletarIngrediente(@PathVariable Long id) {
+		try {
+		ingredienteRepositorio.delete(id);
+		return new ResponseEntity<String>(HttpStatus.OK);
+		
+		} catch (Exception ex ) {
+			return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
+		}	
+	}
+	
+	
 	
 	
 }
