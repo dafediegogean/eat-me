@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.diegogeandafe.pizzaria.excecoes.IngredienteInvalidoException;
 import br.com.diegogeandafe.pizzaria.modelo.entidades.Ingrediente;
@@ -75,6 +76,20 @@ public class IngredienteController {
 			return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
 		}	
 	}
+	
+	//retorna json ou xml
+	//caso queira que todos os metodos retornem reponseBody adicionar a anotacao @RestController na classe
+	@RequestMapping(method=RequestMethod.GET, value="/{id}")
+	@ResponseBody
+	public Ingrediente pesquisarIngrediente(@PathVariable Long id) {
+		Ingrediente ingrediente = ingredienteRepositorio.findOne(id);
+		return ingrediente;
+	}
+	
+	
+	
+	
+	
 	
 	
 	
