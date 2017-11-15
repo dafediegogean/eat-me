@@ -12,6 +12,8 @@ public final class tabela_002dpizzas_jsp extends org.apache.jasper.runtime.HttpJ
   private static java.util.List<String> _jspx_dependants;
 
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_var_items;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_fmt_formatNumber_value_type_nobody;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_fmt_setLocale_value_nobody;
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
@@ -21,10 +23,14 @@ public final class tabela_002dpizzas_jsp extends org.apache.jasper.runtime.HttpJ
 
   public void _jspInit() {
     _jspx_tagPool_c_forEach_var_items = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_fmt_formatNumber_value_type_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_fmt_setLocale_value_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
   }
 
   public void _jspDestroy() {
     _jspx_tagPool_c_forEach_var_items.release();
+    _jspx_tagPool_fmt_formatNumber_value_type_nobody.release();
+    _jspx_tagPool_fmt_setLocale_value_nobody.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -56,7 +62,10 @@ public final class tabela_002dpizzas_jsp extends org.apache.jasper.runtime.HttpJ
       out.write("\n");
       out.write("\n");
       out.write("\n");
-      out.write("\t\t  \n");
+      out.write("\t\t  ");
+      if (_jspx_meth_fmt_setLocale_0(_jspx_page_context))
+        return;
+      out.write("\n");
       out.write("\t \t  <table class=\"table table-hover table-condensed table-striped table-bordered\">\n");
       out.write("\t\t\t\t<thead>\n");
       out.write("\t\t\t\t\t<tr>\n");
@@ -102,6 +111,24 @@ public final class tabela_002dpizzas_jsp extends org.apache.jasper.runtime.HttpJ
     }
   }
 
+  private boolean _jspx_meth_fmt_setLocale_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:setLocale
+    org.apache.taglibs.standard.tag.rt.fmt.SetLocaleTag _jspx_th_fmt_setLocale_0 = (org.apache.taglibs.standard.tag.rt.fmt.SetLocaleTag) _jspx_tagPool_fmt_setLocale_value_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.SetLocaleTag.class);
+    _jspx_th_fmt_setLocale_0.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_setLocale_0.setParent(null);
+    _jspx_th_fmt_setLocale_0.setValue(new String("pt_BR"));
+    int _jspx_eval_fmt_setLocale_0 = _jspx_th_fmt_setLocale_0.doStartTag();
+    if (_jspx_th_fmt_setLocale_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_setLocale_value_nobody.reuse(_jspx_th_fmt_setLocale_0);
+      return true;
+    }
+    _jspx_tagPool_fmt_setLocale_value_nobody.reuse(_jspx_th_fmt_setLocale_0);
+    return false;
+  }
+
   private boolean _jspx_meth_c_forEach_0(PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
@@ -127,9 +154,12 @@ public final class tabela_002dpizzas_jsp extends org.apache.jasper.runtime.HttpJ
           out.write("\t\t\t\t\t\t\t<td>");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pizza.nome}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\n");
-          out.write("\t\t\t\t\t\t\t<td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pizza.preco}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("</td>\n");
+          out.write("\t\t\t\t\t\t\t<td>\n");
+          out.write("         \t\t\t\t\t\t");
+          if (_jspx_meth_fmt_formatNumber_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
+            return true;
+          out.write("\n");
+          out.write("\t\t\t\t\t\t\t</td>\n");
           out.write("\t\t\t\t\t\t\t<td>");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pizza.categoria}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\n");
@@ -156,6 +186,25 @@ public final class tabela_002dpizzas_jsp extends org.apache.jasper.runtime.HttpJ
       _jspx_th_c_forEach_0.doFinally();
       _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_0);
     }
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_formatNumber_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_0)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:formatNumber
+    org.apache.taglibs.standard.tag.rt.fmt.FormatNumberTag _jspx_th_fmt_formatNumber_0 = (org.apache.taglibs.standard.tag.rt.fmt.FormatNumberTag) _jspx_tagPool_fmt_formatNumber_value_type_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.FormatNumberTag.class);
+    _jspx_th_fmt_formatNumber_0.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_formatNumber_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_0);
+    _jspx_th_fmt_formatNumber_0.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pizza.preco}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    _jspx_th_fmt_formatNumber_0.setType("currency");
+    int _jspx_eval_fmt_formatNumber_0 = _jspx_th_fmt_formatNumber_0.doStartTag();
+    if (_jspx_th_fmt_formatNumber_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_formatNumber_value_type_nobody.reuse(_jspx_th_fmt_formatNumber_0);
+      return true;
+    }
+    _jspx_tagPool_fmt_formatNumber_value_type_nobody.reuse(_jspx_th_fmt_formatNumber_0);
     return false;
   }
 }
