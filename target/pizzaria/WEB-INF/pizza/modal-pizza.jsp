@@ -29,8 +29,15 @@
       				<option value="${categoria}">${categoria}</option>
       			</c:forEach>
       		</select>
-      		<input id="id" name="id" type="hidden" />
       		
+      		<label for="nome">Ingredientes</label>
+      		<select id="ingredientes" name="ingredientes" class="form-control" multiple="multiple">
+      			<c:forEach items="${ingredientes}" var="ingrediente">
+      				<option value="${ingrediente.id}">${ingrediente.nome}</option>
+      			</c:forEach>
+      		</select>
+      		
+      		<input id="id" name="id" type="hidden" />
       	</div>
       	<div class="modal-footer">
         		<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>

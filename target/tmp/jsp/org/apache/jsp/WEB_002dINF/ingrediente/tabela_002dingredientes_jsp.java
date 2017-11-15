@@ -81,9 +81,8 @@ public final class tabela_002dingredientes_jsp extends org.apache.jasper.runtime
       out.write("\t\t\t\t\t</tr>\n");
       out.write("\t\t\t\t\t<tr>\n");
       out.write("\t\t\t\t\t\t<td colspan=\"5\">\n");
-      out.write("\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#modal-ingrediente\">\n");
-      out.write("\t\t\t\t\t\t\t\tCadastrar Igrediente\n");
-      out.write("\t\t\t\t\t\t\t</button>\n");
+      out.write("\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" \n");
+      out.write("\t\t\t\t\t\t\t\tdata-target=\"#modal-ingrediente\">Cadastrar Igrediente</button>\n");
       out.write("\t\t\t\t\t\t</td>\n");
       out.write("\t\t\t\t\t</tr>\n");
       out.write("\t\t\t\t</tfoot>\n");
@@ -109,7 +108,7 @@ public final class tabela_002dingredientes_jsp extends org.apache.jasper.runtime
     org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
     _jspx_th_c_forEach_0.setPageContext(_jspx_page_context);
     _jspx_th_c_forEach_0.setParent(null);
-    _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ingredientes }", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ingredientes}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
     _jspx_th_c_forEach_0.setVar("ingrediente");
     int[] _jspx_push_body_count_c_forEach_0 = new int[] { 0 };
     try {
@@ -118,16 +117,16 @@ public final class tabela_002dingredientes_jsp extends org.apache.jasper.runtime
         do {
           out.write("\n");
           out.write("\t\t\t\t\t\t<tr data-id=\"");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ingrediente.id }", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ingrediente.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("\">\n");
           out.write("\t\t\t\t\t\t\t<td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ingrediente.id }", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ingrediente.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\n");
           out.write("\t\t\t\t\t\t\t<td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ingrediente.nome }", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ingrediente.nome}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\n");
           out.write("\t\t\t\t\t\t\t<td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ingrediente.categoria }", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ingrediente.categoria}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\n");
           out.write("\t\t\t\t\t\t\t<td><button type=\"button\" class=\"btn btn-warning btn-editar\">Editar</button> </td>\n");
           out.write("\t\t\t\t\t\t\t<td><button type=\"button\" class=\"btn btn-danger btn-deletar\">Deletar</button> </td>\n");
