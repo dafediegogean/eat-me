@@ -6,16 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import br.com.diegogeandafe.pizzaria.excecoes.IngredienteInvalidoException;
 import br.com.diegogeandafe.pizzaria.modelo.entidades.Ingrediente;
 import br.com.diegogeandafe.pizzaria.modelo.enumeracoes.CategoriaDeIngrediente;
 import br.com.diegogeandafe.pizzaria.modelo.repositorios.IngredienteRepositorio;
-
 
 // /app/ingredientes (metodo GET) -> listarIngredientes
 // /app/ingredientes (metodo POST) -> salvarIngrediente
@@ -45,19 +43,22 @@ public class IngredienteController {
 	@RequestMapping(method=RequestMethod.POST)
 	public String salvarIngrediente(
 			@Valid @ModelAttribute Ingrediente ingrediente,
-			BindingResult bindingResult,
-			RedirectAttributes redirectAttributes) {
+			BindingResult bindingResult, Model model) {
 		
-		//valida objeto esta correto
+		//valida objeto esta correto, se hasErros constar, chama IngredienteInvalidoException, se nao constar salva o ingrediente
 		if(bindingResult.hasErrors()) {	
-			FieldError error = bindingResult.getFieldErrors().get(0);
-			redirectAttributes.addFlashAttribute("mensagemErro", "Não foi possível salvar o Ingrediente. "+error.getField()+" "+error.getDefaultMessage());
+			throw new IngredienteInvalidoException();
 		}else {
 			ingredienteRepositorio.save(ingrediente);
-			redirectAttributes.addFlashAttribute("mensagemInfo", "O Ingrediente foi salvo corretamente.");
 		}
 		
-		return "redirect:/app/ingredientes";
+		//pega lista atraves do repositorio
+		model.addAttribute("ingredientes", ingredienteRepositorio.findAll());	
+				
+		//popula combo com array de categoria
+		model.addAttribute("categorias", CategoriaDeIngrediente.values());
+		
+		return "ingrediente/tabela-ingredientes";
 	}
 	
 	

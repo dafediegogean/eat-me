@@ -61,7 +61,7 @@ public final class modal_002dingrediente_jsp extends org.apache.jasper.runtime.H
       out.write("  <div class=\"modal-dialog\" role=\"document\">\n");
       out.write("    <div class=\"modal-content\">\n");
       out.write("    \t\t\n");
-      out.write("\t  <form method=\"post\">   \t\t\n");
+      out.write("\t  <form id=\"form-ingrediente\" method=\"post\">   \t\t\n");
       out.write("      \t<div class=\"modal-header\">\n");
       out.write("        \t\t<h5 class=\"modal-title\" id=\"exampleModalLongTitle\">Informações do Ingrediente</h5>\n");
       out.write("        \t\t<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n");
@@ -82,7 +82,7 @@ public final class modal_002dingrediente_jsp extends org.apache.jasper.runtime.H
       out.write("      \t</div>\n");
       out.write("      \t<div class=\"modal-footer\">\n");
       out.write("        \t\t<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Cancelar</button>\n");
-      out.write("        \t\t<button type=\"submit\" class=\"btn btn-primary\">Salvar Informações</button>\n");
+      out.write("        \t\t<button id=\"btn-salvar\" type=\"button\" class=\"btn btn-primary\">Salvar Informações</button>\n");
       out.write("      \t</div>\n");
       out.write("      </form>\n");
       out.write("    </div>\n");

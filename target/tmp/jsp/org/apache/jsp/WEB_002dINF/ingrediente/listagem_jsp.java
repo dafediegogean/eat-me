@@ -11,7 +11,6 @@ public final class listagem_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   private static java.util.List<String> _jspx_dependants;
 
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_var_items;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_set_var_value_scope_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_if_test;
 
@@ -22,13 +21,11 @@ public final class listagem_jsp extends org.apache.jasper.runtime.HttpJspBase
   }
 
   public void _jspInit() {
-    _jspx_tagPool_c_forEach_var_items = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_c_set_var_value_scope_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_c_if_test = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
   }
 
   public void _jspDestroy() {
-    _jspx_tagPool_c_forEach_var_items.release();
     _jspx_tagPool_c_set_var_value_scope_nobody.release();
     _jspx_tagPool_c_if_test.release();
   }
@@ -93,35 +90,9 @@ public final class listagem_jsp extends org.apache.jasper.runtime.HttpJspBase
         return;
       out.write("\n");
       out.write("\t\t<section class=\"container\">\n");
-      out.write("\t\t\t<table class=\"table table-hover table-condensed table-striped table-bordered\">\n");
-      out.write("\t\t\t\t<thead>\n");
-      out.write("\t\t\t\t\t<tr>\n");
-      out.write("\t\t\t\t\t\t<td>#</td>\n");
-      out.write("\t\t\t\t\t\t<td>Nome</td>\n");
-      out.write("\t\t\t\t\t\t<td>Categoria</td>\n");
-      out.write("\t\t\t\t\t</tr>\n");
-      out.write("\t\t\t\t</thead>\n");
-      out.write("\t\t\t\t<tbody>\n");
-      out.write("\t\t\t\t\t");
-      if (_jspx_meth_c_forEach_0(_jspx_page_context))
-        return;
+      out.write("\t\t\t");
+      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "tabela-ingredientes.jsp", out, false);
       out.write("\n");
-      out.write("\t\t\t\t</tbody>\n");
-      out.write("\t\t\t\t<tfoot>\n");
-      out.write("\t\t\t\t\t<tr>\n");
-      out.write("\t\t\t\t\t\t<td colspan=\"3\">Ingredientes cadastrados: ");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ingredientes.size() }", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("</td>\n");
-      out.write("\t\t\t\t\t</tr>\n");
-      out.write("\t\t\t\t\t<tr>\n");
-      out.write("\t\t\t\t\t\t<td colspan=\"3\">\n");
-      out.write("\t\t\t\t\t\t\t<button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#modal-ingrediente\">\n");
-      out.write("\t\t\t\t\t\t\t\tCadastrar Igrediente\n");
-      out.write("\t\t\t\t\t\t\t</button>\n");
-      out.write("\t\t\t\t\t\t</td>\n");
-      out.write("\t\t\t\t\t</tr>\n");
-      out.write("\t\t\t\t</tfoot>\n");
-      out.write("\t\t\t</table>\n");
       out.write("\t\t</section>\n");
       out.write("\t\t\n");
       out.write("\t\t");
@@ -133,6 +104,9 @@ public final class listagem_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t<script type=\"text/javascript\" src=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${path}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("/static/bootstrap/js/bootstrap.min.js\"></script>\n");
+      out.write("\t\t<script type=\"text/javascript\" src=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${path}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/static/js/ingredientes.js\"></script>\n");
       out.write("\t\t\n");
       out.write("\t</body>\n");
       out.write("</html>");
@@ -230,53 +204,6 @@ public final class listagem_jsp extends org.apache.jasper.runtime.HttpJspBase
       return true;
     }
     _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_1);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_forEach_0(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:forEach
-    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
-    _jspx_th_c_forEach_0.setPageContext(_jspx_page_context);
-    _jspx_th_c_forEach_0.setParent(null);
-    _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ingredientes }", java.lang.Object.class, (PageContext)_jspx_page_context, null));
-    _jspx_th_c_forEach_0.setVar("ingrediente");
-    int[] _jspx_push_body_count_c_forEach_0 = new int[] { 0 };
-    try {
-      int _jspx_eval_c_forEach_0 = _jspx_th_c_forEach_0.doStartTag();
-      if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-        do {
-          out.write("\n");
-          out.write("\t\t\t\t\t\t<tr>\n");
-          out.write("\t\t\t\t\t\t\t<td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ingrediente.id }", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("</td>\n");
-          out.write("\t\t\t\t\t\t\t<td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ingrediente.nome }", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("</td>\n");
-          out.write("\t\t\t\t\t\t\t<td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ingrediente.categoria }", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("</td>\n");
-          out.write("\t\t\t\t\t\t</tr>\n");
-          out.write("\t\t\t\t\t");
-          int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
-          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-            break;
-        } while (true);
-      }
-      if (_jspx_th_c_forEach_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-        return true;
-      }
-    } catch (Throwable _jspx_exception) {
-      while (_jspx_push_body_count_c_forEach_0[0]-- > 0)
-        out = _jspx_page_context.popBody();
-      _jspx_th_c_forEach_0.doCatch(_jspx_exception);
-    } finally {
-      _jspx_th_c_forEach_0.doFinally();
-      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_0);
-    }
     return false;
   }
 }

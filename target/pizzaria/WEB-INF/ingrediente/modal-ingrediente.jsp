@@ -9,7 +9,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
     		
-	  <form method="post">   		
+	  <form id="form-ingrediente" method="post">   		
       	<div class="modal-header">
         		<h5 class="modal-title" id="exampleModalLongTitle">Informações do Ingrediente</h5>
         		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -21,11 +21,15 @@
       		<input id="nome" name="nome" class="form-control" />
       		
       		<label for="nome">Categoria</label>
-      		<input id="categoria" name="categoria" class="form-control" />
+      		<select id="categoria" name="categoria" class="form-control">
+      			<c:forEach items="${categorias}" var="categoria">
+      				<option value="${categoria}">${categoria}</option>
+      			</c:forEach>
+      		</select>
       	</div>
       	<div class="modal-footer">
         		<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-        		<button type="submit" class="btn btn-primary">Salvar Informações</button>
+        		<button id="btn-salvar" type="button" class="btn btn-primary">Salvar Informações</button>
       	</div>
       </form>
     </div>
