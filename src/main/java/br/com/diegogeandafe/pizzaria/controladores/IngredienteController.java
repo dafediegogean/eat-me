@@ -86,12 +86,4 @@ public class IngredienteController {
 		return ingrediente;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
 }

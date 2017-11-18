@@ -1,17 +1,18 @@
 $(document).ready(function(){
 	aplicarListeners();
+	aplicarListenerBtnSalvar();
+	
 });
 
 var limparModal = function(){
 	$('#id').val('');
 	$('#nome').val('');
+	$('#preco').val('');
 	$('#categoria').val('');
+	$('#ingredientes option').attr('selected', false);
 };
 
-var aplicarListeners = function(){
-	
-	$('#modal-ingrediente').on('hide.bs.modal',limparModal);
-	
+var aplicarListenerBtnSalvar = function(){
 	$('#btn-salvar').on('click', function(){
 		var url = 'ingredientes';
 		var dadosIngrediente = $('#form-ingrediente').serialize();
@@ -28,6 +29,14 @@ var aplicarListeners = function(){
 			$('#modal-ingrediente').modal('hide');
 		});
 	});
+}
+
+
+
+var aplicarListeners = function(){
+	
+	$('#modal-ingrediente').on('hide.bs.modal',limparModal);
+
 	
 	$('.btn-editar').on('click',function(){
 		var id = $(this).parents('tr').data('id');
@@ -48,12 +57,13 @@ var aplicarListeners = function(){
 		//referencia o button
 		//procura os componentes acima dele
 		var id = $(this).parents('tr').data('id');
-		var ingredientes = $('#quantidade-ingredientes').text();
+		
 			$.ajax({
-			   url: "ingredientes/"+id,
+			   url: 'ingredientes/'+id,
 			   type: 'DELETE',
 			   success: function(result){
 				   $('tr[data-id="'+id+'"]').remove();
+				   var ingredientes = parseInt($('#quantidade-ingredientes').text());
 				   $('#quantidade-ingredientes').text(ingredientes -1);
 			   }
 		});

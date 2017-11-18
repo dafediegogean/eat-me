@@ -26,7 +26,11 @@
          						<fmt:formatNumber value = "${pizza.preco}" type = "currency"/>
 							</td>
 							<td>${pizza.categoria}</td>
-							<td>${pizza.ingredientes}</td>
+							<td>
+								<c:forEach items="${pizza.ingredientes}" var="ingrediente">
+									${ingrediente.nome}<br/>
+								</c:forEach>
+							</td>
 							<td><button type="button" class="btn btn-warning btn-editar">Editar</button> </td>
 							<td><button type="button" class="btn btn-danger btn-deletar">Deletar</button> </td>
 						</tr>

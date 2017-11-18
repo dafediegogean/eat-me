@@ -48,12 +48,13 @@ var aplicarListeners = function(){
 		//referencia o button
 		//procura os componentes acima dele
 		var id = $(this).parents('tr').data('id');
-		var ingredientes = $('#quantidade-ingredientes').text();
+		
 			$.ajax({
-			   url: "ingredientes/"+id,
+			   url: 'ingredientes/'+id,
 			   type: 'DELETE',
 			   success: function(result){
 				   $('tr[data-id="'+id+'"]').remove();
+				   var ingredientes = parseInt($('#quantidade-ingredientes').text());
 				   $('#quantidade-ingredientes').text(ingredientes -1);
 			   }
 		});
