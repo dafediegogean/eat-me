@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	aplicarListeners();
 	
-	aplicarListenerBtnSalvar
+	aplicarListenerBtnSalvar();	
 });
 
 var limparModal = function(){

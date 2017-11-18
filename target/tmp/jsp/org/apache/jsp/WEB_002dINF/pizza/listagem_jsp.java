@@ -81,6 +81,10 @@ public final class listagem_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("</style>\n");
       out.write("</head>\n");
       out.write("\t<body>\n");
+      out.write("\t\t<div class=\"container\">\n");
+      out.write("\t\t");
+      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "../menu.jsp", out, false);
+      out.write("\n");
       out.write("\t\t");
       if (_jspx_meth_c_if_0(_jspx_page_context))
         return;
@@ -89,7 +93,7 @@ public final class listagem_jsp extends org.apache.jasper.runtime.HttpJspBase
       if (_jspx_meth_c_if_1(_jspx_page_context))
         return;
       out.write("\n");
-      out.write("\t\t<section class=\"container\" id=\"secao-pizzas\">\n");
+      out.write("\t\t<section id=\"secao-pizzas\">\n");
       out.write("\t\t\t");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "tabela-pizzas.jsp", out, false);
       out.write("\n");
@@ -98,6 +102,18 @@ public final class listagem_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "modal-pizza.jsp", out, false);
       out.write("\n");
+      out.write("\t\t\n");
+      out.write("\t\t<div>\n");
+      out.write("\t\t\t<form action=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${path}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/sair\" method=\"post\">\n");
+      out.write("\t\t\t\t<input type=\"hidden\" name=\"_csrf\" value=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${_csrf.token}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\" />\n");
+      out.write("\t\t\t\t<button type=\"submit\">Sair da Aplicaçã</button>\n");
+      out.write("\t\t\t</form>\n");
+      out.write("\t\t</div>\n");
+      out.write("\t\t</div>\n");
       out.write("\t\t\n");
       out.write("\t\t<script type=\"text/javascript\" src=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${path}", java.lang.String.class, (PageContext)_jspx_page_context, null));
@@ -156,7 +172,7 @@ public final class listagem_jsp extends org.apache.jasper.runtime.HttpJspBase
     if (_jspx_eval_c_if_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\n");
-        out.write("\t\t\t<div class=\"container\">\n");
+        out.write("\t\t\t<div>\n");
         out.write("\t\t\t\t<div class=\"alert alert-danger\">");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${mensagemErro}", java.lang.String.class, (PageContext)_jspx_page_context, null));
         out.write("</div>\n");
@@ -188,7 +204,7 @@ public final class listagem_jsp extends org.apache.jasper.runtime.HttpJspBase
     if (_jspx_eval_c_if_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\n");
-        out.write("\t\t\t<div class=\"container\">\n");
+        out.write("\t\t\t<div>\n");
         out.write("\t\t\t\t<div class=\"alert alert-success\">");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${mensagemInfo}", java.lang.String.class, (PageContext)_jspx_page_context, null));
         out.write("</div>\n");

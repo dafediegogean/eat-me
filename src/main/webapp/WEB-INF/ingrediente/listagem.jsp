@@ -18,24 +18,27 @@
 </style>
 </head>
 	<body>
-		<c:if test="${not empty mensagemErro}">
-			<div class="container">
-				<div class="alert alert-danger">${mensagemErro}</div>
-			</div>
-		</c:if>
-		<c:if test="${not empty mensagemInfo}">
-			<div class="container">
-				<div class="alert alert-success">${mensagemInfo}</div>
-			</div>
-		</c:if>
-		<section class="container" id="secao-ingredientes">
-			<jsp:include page="tabela-ingredientes.jsp"></jsp:include>
-		</section>
+		<div class="container">
+			<jsp:include page="../menu.jsp"></jsp:include>
+			<c:if test="${not empty mensagemErro}">
+				<div>
+					<div class="alert alert-danger">${mensagemErro}</div>
+				</div>
+			</c:if>
+			<c:if test="${not empty mensagemInfo}">
+				<div class="container">
+					<div class="alert alert-success">${mensagemInfo}</div>
+				</div>
+			</c:if>
+			<section id="secao-ingredientes">
+				<jsp:include page="tabela-ingredientes.jsp"></jsp:include>
+			</section>
 		
-		<jsp:include page="modal-ingrediente.jsp" />
-		<script type="text/javascript" src="${path}/static/js/jquery-2.1.3.min.js"></script>
-		<script type="text/javascript" src="${path}/static/bootstrap/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="${path}/static/js/ingredientes.js"></script>
+			<jsp:include page="modal-ingrediente.jsp" />
+			<script type="text/javascript" src="${path}/static/js/jquery-2.1.3.min.js"></script>
+			<script type="text/javascript" src="${path}/static/bootstrap/js/bootstrap.min.js"></script>
+			<script type="text/javascript" src="${path}/static/js/ingredientes.js"></script>
 		
+		</div>
 	</body>
 </html>

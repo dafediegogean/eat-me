@@ -81,33 +81,38 @@ public final class listagem_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("</style>\n");
       out.write("</head>\n");
       out.write("\t<body>\n");
-      out.write("\t\t");
+      out.write("\t\t<div class=\"container\">\n");
+      out.write("\t\t\t");
+      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "../menu.jsp", out, false);
+      out.write("\n");
+      out.write("\t\t\t");
       if (_jspx_meth_c_if_0(_jspx_page_context))
         return;
       out.write("\n");
-      out.write("\t\t");
+      out.write("\t\t\t");
       if (_jspx_meth_c_if_1(_jspx_page_context))
         return;
       out.write("\n");
-      out.write("\t\t<section class=\"container\" id=\"secao-ingredientes\">\n");
-      out.write("\t\t\t");
+      out.write("\t\t\t<section id=\"secao-ingredientes\">\n");
+      out.write("\t\t\t\t");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "tabela-ingredientes.jsp", out, false);
       out.write("\n");
-      out.write("\t\t</section>\n");
+      out.write("\t\t\t</section>\n");
       out.write("\t\t\n");
-      out.write("\t\t");
+      out.write("\t\t\t");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "modal-ingrediente.jsp", out, false);
       out.write("\n");
-      out.write("\t\t<script type=\"text/javascript\" src=\"");
+      out.write("\t\t\t<script type=\"text/javascript\" src=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${path}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("/static/js/jquery-2.1.3.min.js\"></script>\n");
-      out.write("\t\t<script type=\"text/javascript\" src=\"");
+      out.write("\t\t\t<script type=\"text/javascript\" src=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${path}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("/static/bootstrap/js/bootstrap.min.js\"></script>\n");
-      out.write("\t\t<script type=\"text/javascript\" src=\"");
+      out.write("\t\t\t<script type=\"text/javascript\" src=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${path}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("/static/js/ingredientes.js\"></script>\n");
       out.write("\t\t\n");
+      out.write("\t\t</div>\n");
       out.write("\t</body>\n");
       out.write("</html>");
     } catch (Throwable t) {
@@ -156,12 +161,12 @@ public final class listagem_jsp extends org.apache.jasper.runtime.HttpJspBase
     if (_jspx_eval_c_if_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\n");
-        out.write("\t\t\t<div class=\"container\">\n");
-        out.write("\t\t\t\t<div class=\"alert alert-danger\">");
+        out.write("\t\t\t\t<div>\n");
+        out.write("\t\t\t\t\t<div class=\"alert alert-danger\">");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${mensagemErro}", java.lang.String.class, (PageContext)_jspx_page_context, null));
         out.write("</div>\n");
-        out.write("\t\t\t</div>\n");
-        out.write("\t\t");
+        out.write("\t\t\t\t</div>\n");
+        out.write("\t\t\t");
         int evalDoAfterBody = _jspx_th_c_if_0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -188,12 +193,12 @@ public final class listagem_jsp extends org.apache.jasper.runtime.HttpJspBase
     if (_jspx_eval_c_if_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\n");
-        out.write("\t\t\t<div class=\"container\">\n");
-        out.write("\t\t\t\t<div class=\"alert alert-success\">");
+        out.write("\t\t\t\t<div class=\"container\">\n");
+        out.write("\t\t\t\t\t<div class=\"alert alert-success\">");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${mensagemInfo}", java.lang.String.class, (PageContext)_jspx_page_context, null));
         out.write("</div>\n");
-        out.write("\t\t\t</div>\n");
-        out.write("\t\t");
+        out.write("\t\t\t\t</div>\n");
+        out.write("\t\t\t");
         int evalDoAfterBody = _jspx_th_c_if_1.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
