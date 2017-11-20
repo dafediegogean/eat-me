@@ -41,10 +41,12 @@ var aplicarListeners = function(){
 		//referencia o button
 		//procura os componentes acima dele
 		var pizzaId = $(this).parents('tr').data('id');
+		var csrf = $("#csrf").val();
 		
 			$.ajax({
 			   url: 'pizzas/'+pizzaId,
 			   type: 'DELETE',
+			   headers: {'X-CSRF-TOKEN': csrf},
 			   success: function(){
 				   $('tr[data-id="'+pizzaId+'"]').remove();
 				   var pizzas = parseInt($('#quantidade-pizzas').text());

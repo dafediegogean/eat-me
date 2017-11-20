@@ -5,9 +5,13 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import br.com.diegogeandafe.pizzaria.modelo.enumeracoes.CategoriaDeIngrediente;
 
@@ -25,6 +29,11 @@ public class Ingrediente {
 	@NotNull
 	@Enumerated(EnumType.STRING)
 	private CategoriaDeIngrediente categoria;
+	
+	@ManyToOne
+	@JoinColumn(name="DONO")
+	@JsonIgnore
+	private Pizzaria dono;
 
 	public Long getId() {
 		return id;
@@ -48,6 +57,14 @@ public class Ingrediente {
 
 	public void setCategoria(CategoriaDeIngrediente categoria) {
 		this.categoria = categoria;
+	}
+	
+	public Pizzaria getDono() {
+		return dono;
+	}
+
+	public void setDono(Pizzaria dono) {
+		this.dono = dono;
 	}
 
 	@Override

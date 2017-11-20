@@ -102,17 +102,6 @@ public final class listagem_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "modal-pizza.jsp", out, false);
       out.write("\n");
-      out.write("\t\t\n");
-      out.write("\t\t<div>\n");
-      out.write("\t\t\t<form action=\"");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${path}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("/sair\" method=\"post\">\n");
-      out.write("\t\t\t\t<input type=\"hidden\" name=\"_csrf\" value=\"");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${_csrf.token}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("\" />\n");
-      out.write("\t\t\t\t<button type=\"submit\">Sair da Aplicaçã</button>\n");
-      out.write("\t\t\t</form>\n");
-      out.write("\t\t</div>\n");
       out.write("\t\t</div>\n");
       out.write("\t\t\n");
       out.write("\t\t<script type=\"text/javascript\" src=\"");

@@ -27,6 +27,7 @@
       			</c:forEach>
       		</select>
       		<input id="id" name="id" type="hidden" />
+      		<input id="csrf" name="_csrf" type="hidden" value="${_csrf.token }" />
       		
       	</div>
       	<div class="modal-footer">

@@ -35,13 +35,6 @@
 		</section>
 		
 		<jsp:include page="modal-pizza.jsp"></jsp:include>
-		
-		<div>
-			<form action="${path}/sair" method="post">
-				<input type="hidden" name="_csrf" value="${_csrf.token}" />
-				<button type="submit">Sair da Aplicaçã</button>
-			</form>
-		</div>
 		</div>
 		
 		<script type="text/javascript" src="${path}/static/js/jquery-2.1.3.min.js"></script>

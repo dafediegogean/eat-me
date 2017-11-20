@@ -11,10 +11,20 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   private static java.util.List<String> _jspx_dependants;
 
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_spring_message_code_nobody;
+
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
   public java.util.List<String> getDependants() {
     return _jspx_dependants;
+  }
+
+  public void _jspInit() {
+    _jspx_tagPool_spring_message_code_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+  }
+
+  public void _jspDestroy() {
+    _jspx_tagPool_spring_message_code_nobody.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -71,8 +81,28 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <!-- Collect the nav links, forms, and other content for toggling -->\n");
       out.write("    <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n");
       out.write("\t\t<ul class=\"nav navbar-nav\">\n");
-      out.write("\t\t\t<li><a href=\"pizzas\"> Pizzas</a></li>\n");
-      out.write("\t\t\t<li><a href=\"ingredientes\"> Ingredientes</a></li>\n");
+      out.write("\t\t\t<li><a href=\"pizzas\">");
+      if (_jspx_meth_spring_message_0(_jspx_page_context))
+        return;
+      out.write("</a></li>\n");
+      out.write("\t\t\t<li><a href=\"ingredientes\">");
+      if (_jspx_meth_spring_message_1(_jspx_page_context))
+        return;
+      out.write("</a></li>\n");
+      out.write("\t\t\t<li>\n");
+      out.write("\t\t\t\t<a href=\"?lang=pt_BR\">\n");
+      out.write("\t\t\t\t\t<img alt=\"Português\" src=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${path}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/static/img/br.png\" height=\"25px\">\n");
+      out.write("\t\t\t\t</a>\n");
+      out.write("\t\t\t</li>\n");
+      out.write("\t\t\t<li>\n");
+      out.write("\t\t\t\t<a href=\"?lang=en_US\">\n");
+      out.write("\t\t\t\t\t<img alt=\"English\" src=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${path}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/static/img/us.png\" height=\"25px\">\n");
+      out.write("\t\t\t\t</a>\n");
+      out.write("\t\t\t</li>\n");
       out.write("\t\t</ul>\n");
       out.write("      <ul class=\"nav navbar-nav navbar-right\">\n");
       out.write("        <li>\n");
@@ -82,12 +112,15 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\t<input type=\"hidden\" name=\"_csrf\" value=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${_csrf.token}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("\" />\n");
-      out.write("\t\t\t\t<button id=\"btn-sair\" type=\"submit\" class=\"btn btn-default\">Sair da Aplicaçã</button>\n");
+      out.write("\t\t\t\t<button id=\"btn-sair\" type=\"submit\" class=\"btn btn-default\">");
+      if (_jspx_meth_spring_message_2(_jspx_page_context))
+        return;
+      out.write("</button>\n");
       out.write("\t\t\t</form>\n");
       out.write("        </li>\n");
       out.write("      </ul>\n");
-      out.write("    </div><!-- /.navbar-collapse -->\n");
-      out.write("  </div><!-- /.container-fluid -->\n");
+      out.write("    </div>\n");
+      out.write("  </div>\n");
       out.write("</nav>\n");
       out.write("\n");
     } catch (Throwable t) {
@@ -101,5 +134,83 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
     } finally {
       _jspxFactory.releasePageContext(_jspx_page_context);
     }
+  }
+
+  private boolean _jspx_meth_spring_message_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  spring:message
+    org.springframework.web.servlet.tags.MessageTag _jspx_th_spring_message_0 = (org.springframework.web.servlet.tags.MessageTag) _jspx_tagPool_spring_message_code_nobody.get(org.springframework.web.servlet.tags.MessageTag.class);
+    _jspx_th_spring_message_0.setPageContext(_jspx_page_context);
+    _jspx_th_spring_message_0.setParent(null);
+    _jspx_th_spring_message_0.setCode("views.menu.pizzas");
+    int[] _jspx_push_body_count_spring_message_0 = new int[] { 0 };
+    try {
+      int _jspx_eval_spring_message_0 = _jspx_th_spring_message_0.doStartTag();
+      if (_jspx_th_spring_message_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_spring_message_0[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_spring_message_0.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_spring_message_0.doFinally();
+      _jspx_tagPool_spring_message_code_nobody.reuse(_jspx_th_spring_message_0);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_spring_message_1(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  spring:message
+    org.springframework.web.servlet.tags.MessageTag _jspx_th_spring_message_1 = (org.springframework.web.servlet.tags.MessageTag) _jspx_tagPool_spring_message_code_nobody.get(org.springframework.web.servlet.tags.MessageTag.class);
+    _jspx_th_spring_message_1.setPageContext(_jspx_page_context);
+    _jspx_th_spring_message_1.setParent(null);
+    _jspx_th_spring_message_1.setCode("views.menu.ingredientes");
+    int[] _jspx_push_body_count_spring_message_1 = new int[] { 0 };
+    try {
+      int _jspx_eval_spring_message_1 = _jspx_th_spring_message_1.doStartTag();
+      if (_jspx_th_spring_message_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_spring_message_1[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_spring_message_1.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_spring_message_1.doFinally();
+      _jspx_tagPool_spring_message_code_nobody.reuse(_jspx_th_spring_message_1);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_spring_message_2(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  spring:message
+    org.springframework.web.servlet.tags.MessageTag _jspx_th_spring_message_2 = (org.springframework.web.servlet.tags.MessageTag) _jspx_tagPool_spring_message_code_nobody.get(org.springframework.web.servlet.tags.MessageTag.class);
+    _jspx_th_spring_message_2.setPageContext(_jspx_page_context);
+    _jspx_th_spring_message_2.setParent(null);
+    _jspx_th_spring_message_2.setCode("views.menu.sair");
+    int[] _jspx_push_body_count_spring_message_2 = new int[] { 0 };
+    try {
+      int _jspx_eval_spring_message_2 = _jspx_th_spring_message_2.doStartTag();
+      if (_jspx_th_spring_message_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_spring_message_2[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_spring_message_2.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_spring_message_2.doFinally();
+      _jspx_tagPool_spring_message_code_nobody.reuse(_jspx_th_spring_message_2);
+    }
+    return false;
   }
 }

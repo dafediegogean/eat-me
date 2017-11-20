@@ -18,27 +18,23 @@
 </style>
 </head>
 	<body>
+		<div class="container">
+		<jsp:include page="../menu.jsp"></jsp:include>
 		<c:if test="${not empty mensagemErro}">
-			<div class="container">
+			<div>
 				<div class="alert alert-danger">${mensagemErro}</div>
 			</div>
 		</c:if>
 		<c:if test="${not empty mensagemInfo}">
-			<div class="container">
+			<div>
 				<div class="alert alert-success">${mensagemInfo}</div>
 			</div>
 		</c:if>
-		<section class="container" id="secao-pizzas">
+		<section id="secao-pizzas">
 			<jsp:include page="tabela-pizzas.jsp"></jsp:include>
 		</section>
 		
 		<jsp:include page="modal-pizza.jsp"></jsp:include>
-		
-		<div>
-			<form action="">
-				<input type="hidden" name="_csrf" value="${csrf.token}" />
-				<button type="submit">Sair da Aplicaçã</button>
-			</form>
 		</div>
 		
 		<script type="text/javascript" src="${path}/static/js/jquery-2.1.3.min.js"></script>

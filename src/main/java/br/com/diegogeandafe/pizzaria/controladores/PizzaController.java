@@ -14,14 +14,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.diegogeandafe.pizzaria.excecoes.IngredienteInvalidoException;
 import br.com.diegogeandafe.pizzaria.modelo.entidades.Ingrediente;
 import br.com.diegogeandafe.pizzaria.modelo.entidades.Pizza;
 import br.com.diegogeandafe.pizzaria.modelo.enumeracoes.CategoriaDePizza;
-import br.com.diegogeandafe.pizzaria.modelo.repositorios.IngredienteRepositorio;
-import br.com.diegogeandafe.pizzaria.modelo.repositorios.PizzaRepositorio;
+import br.com.diegogeandafe.pizzaria.modelo.servicos.ServicoIngrediente;
+import br.com.diegogeandafe.pizzaria.modelo.servicos.ServicoPizza;
 import br.com.diegogeandafe.pizzaria.propertyeditors.IngredientePropertyEditor;
 
 @Controller
@@ -30,18 +29,17 @@ public class PizzaController {
 	
 	@Autowired private IngredientePropertyEditor ingredientePropertyEditor;
 	
-	@Autowired private PizzaRepositorio pizzaRepositorio;
-	
-	@Autowired private IngredienteRepositorio ingredienteRepositorio;
+	@Autowired private ServicoPizza servicoPizza;
+	@Autowired private ServicoIngrediente servicoIngrediente;
 	
 	@RequestMapping(method=RequestMethod.GET)
 	private String listarPizzas(Model model){
 		//pega lista do repositorio e passa para a view uma lista de pizza
-		model.addAttribute("pizzas", pizzaRepositorio.findAll());
+		model.addAttribute("pizzas", servicoPizza.listar());
 		//popula combo com array de categoria
 		model.addAttribute("categorias",CategoriaDePizza.values());
 		//popula combo com array de ingredientes
-		model.addAttribute("ingredientes", ingredienteRepositorio.findAll());
+		model.addAttribute("ingredientes", servicoIngrediente.listar());
 		return "pizza/listagem";
 		
 	}
@@ -55,11 +53,11 @@ public class PizzaController {
 			if(bindingResult.hasErrors()) {	
 				throw new IngredienteInvalidoException();
 			}else {
-				pizzaRepositorio.save(pizza);
+				servicoPizza.salvar(pizza);
 			}
 			
 			//pega lista atraves do repositorio
-			model.addAttribute("pizzas", pizzaRepositorio.findAll());	
+			model.addAttribute("pizzas", servicoPizza.listar());	
 			//popula combo com array de categoria
 			model.addAttribute("categorias", CategoriaDePizza.values());	
 			return "pizza/tabela-pizzas";
@@ -70,7 +68,7 @@ public class PizzaController {
 	public ResponseEntity<String> deletarPizza(@PathVariable Long pizzaId){
 		//deleta pelo id da pizza pizzaId
 		try {
-			pizzaRepositorio.delete(pizzaId);
+			servicoPizza.remover(pizzaId);
 			return new ResponseEntity<String>(HttpStatus.OK);
 		} catch (Exception ex) {
 			return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
@@ -80,18 +78,18 @@ public class PizzaController {
 	//busca id pizza para alterar
 	@RequestMapping(method=RequestMethod.GET, value="/{pizzaId}")
 	public ResponseEntity<Pizza> buscarPizza(@PathVariable Long pizzaId){
-		Pizza pizza = pizzaRepositorio.findOne(pizzaId);
+		Pizza pizza = servicoPizza.buscar(pizzaId);
 		return new ResponseEntity<>(pizza, HttpStatus.OK);
 	
 	}
 	
 	
 	//retorna view com pizzas atualizadas
-	@RequestMapping("/quantas")
-	@ResponseBody
-	public String quantasPizzas() {
-		return "Atualmente ha "+pizzaRepositorio.count()+" cadastradas!";
-	}
+	//@RequestMapping("/quantas")
+	//@ResponseBody
+	//public String quantasPizzas() {
+		//return "Atualmente ha "+pizzaRepositorio.count()+" cadastradas!";
+	//}
 	
 	//recebe webdatabinder para quando receber um objeto do tipo ingrediente
 	//quando tiver alguem querendo ser inserido um id em um ingrediente utilizar o ingredientePropertyEditor

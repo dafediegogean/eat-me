@@ -30,7 +30,7 @@ public class Aplicacao implements WebApplicationInitializer {
 		servletContext.addListener(new ContextLoaderListener(webApplicationContext));
 		
 		FilterRegistration.Dynamic filter = servletContext.addFilter("openEntityManagerFilter", buildOpenEntityManagerFilter());
-		filter.addMappingForUrlPatterns(getDispatcherTypes(), false, "/app/*");
+		filter.addMappingForUrlPatterns(getDispatcherTypes(), false, "/*");
 	}
 	
 	//Faz com que toda as requisições que o usuário envia seja aberto uma nova sessão de banco de dados

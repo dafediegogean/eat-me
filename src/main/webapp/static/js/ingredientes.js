@@ -57,10 +57,12 @@ var aplicarListeners = function(){
 		//referencia o button
 		//procura os componentes acima dele
 		var id = $(this).parents('tr').data('id');
+		var csrf = $("#csrf").val();
 		
 			$.ajax({
 			   url: 'ingredientes/'+id,
 			   type: 'DELETE',
+			   headers: {'X-CSRF-TOKEN': csrf},
 			   success: function(result){
 				   $('tr[data-id="'+id+'"]').remove();
 				   var ingredientes = parseInt($('#quantidade-ingredientes').text());

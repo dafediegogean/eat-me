@@ -8,10 +8,14 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import br.com.diegogeandafe.pizzaria.modelo.enumeracoes.CategoriaDePizza;
 
@@ -27,17 +31,20 @@ public class Pizza {
 	private String nome;
 	
 	@NotNull
-	private double preco;
+	private Double preco;
 	
 	@NotNull
 	@Enumerated(EnumType.STRING)
 	private CategoriaDePizza categoria;
 	
-	
 	@ManyToMany
 	private Set<Ingrediente> ingredientes;
 	
-
+	@ManyToOne
+	@JoinColumn(name="DONO")
+	@JsonIgnore
+	private Pizzaria dono;
+	
 	public Long getId() {
 		return id;
 	}
@@ -52,6 +59,10 @@ public class Pizza {
 
 	public CategoriaDePizza getCategoria() {
 		return categoria;
+	}
+	
+	public Pizzaria getDono() {
+		return dono;
 	}
 
 	public Set<Ingrediente> getIngredientes() {
@@ -76,6 +87,10 @@ public class Pizza {
 
 	public void setIngredientes(Set<Ingrediente> ingredientes) {
 		this.ingredientes = ingredientes;
+	}	
+	
+	public void setDono(Pizzaria dono) {
+		this.dono = dono;
 	}
 
 	@Override
@@ -110,8 +125,5 @@ public class Pizza {
 		} else if (!nome.equals(other.nome))
 			return false;
 		return true;
-	}
-	
-	
-	
+	}	
 }

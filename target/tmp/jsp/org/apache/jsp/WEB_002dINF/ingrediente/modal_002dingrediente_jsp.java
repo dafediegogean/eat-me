@@ -80,6 +80,9 @@ public final class modal_002dingrediente_jsp extends org.apache.jasper.runtime.H
       out.write("\n");
       out.write("      \t\t</select>\n");
       out.write("      \t\t<input id=\"id\" name=\"id\" type=\"hidden\" />\n");
+      out.write("      \t\t<input id=\"csrf\" name=\"_csrf\" type=\"hidden\" value=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${_csrf.token }", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\" />\n");
       out.write("      \t\t\n");
       out.write("      \t</div>\n");
       out.write("      \t<div class=\"modal-footer\">\n");

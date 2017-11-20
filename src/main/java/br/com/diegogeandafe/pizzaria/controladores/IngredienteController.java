@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import br.com.diegogeandafe.pizzaria.excecoes.IngredienteInvalidoException;
 import br.com.diegogeandafe.pizzaria.modelo.entidades.Ingrediente;
 import br.com.diegogeandafe.pizzaria.modelo.enumeracoes.CategoriaDeIngrediente;
-import br.com.diegogeandafe.pizzaria.modelo.repositorios.IngredienteRepositorio;
+import br.com.diegogeandafe.pizzaria.modelo.servicos.ServicoIngrediente;
 
 // /app/ingredientes (metodo GET) -> listarIngredientes
 // /app/ingredientes (metodo POST) -> salvarIngrediente
@@ -25,15 +25,14 @@ import br.com.diegogeandafe.pizzaria.modelo.repositorios.IngredienteRepositorio;
 @RequestMapping("/ingredientes")
 public class IngredienteController {
 	
-	@Autowired
-	private IngredienteRepositorio ingredienteRepositorio;
+	@Autowired private ServicoIngrediente servicoIngrediente;
 	
 	//WEB-INF/ingredientes/listagem.jsp
 	@RequestMapping(method=RequestMethod.GET)
 	public String listarIngredientes(Model model) {
 		//traz todos os dados
 		//objeto ingredientes de Iterable e semelhante a uma lista
-		Iterable<Ingrediente> ingredientes = ingredienteRepositorio.findAll();
+		Iterable<Ingrediente> ingredientes = servicoIngrediente.listar();
 	
 		model.addAttribute("titulo","Listagem de Ingredientes");
 		//pega lista atraves do repositorio
@@ -44,21 +43,21 @@ public class IngredienteController {
 		return "ingrediente/listagem";
 	}
 	
-
 	@RequestMapping(method=RequestMethod.POST)
 	public String salvarIngrediente(
 			@Valid @ModelAttribute Ingrediente ingrediente,
-			BindingResult bindingResult, Model model) {
+			BindingResult bindingResult, 
+			Model model){
 		
 		//valida objeto esta correto, se hasErros constar, chama IngredienteInvalidoException, se nao constar salva o ingrediente
 		if(bindingResult.hasErrors()) {	
 			throw new IngredienteInvalidoException();
 		}else {
-			ingredienteRepositorio.save(ingrediente);
+			servicoIngrediente.salvar(ingrediente);
 		}
 		
 		//pega lista atraves do repositorio
-		model.addAttribute("ingredientes", ingredienteRepositorio.findAll());	
+		model.addAttribute("ingredientes", servicoIngrediente.listar());	
 		//popula combo com array de categoria
 		model.addAttribute("categorias", CategoriaDeIngrediente.values());	
 		return "ingrediente/tabela-ingredientes";
@@ -67,9 +66,9 @@ public class IngredienteController {
 	//retorna view com ingredientes atualizados
 	//deleta via method DELETE passando o id
 	@RequestMapping(method=RequestMethod.DELETE, value="{id}")
-	public ResponseEntity<String>deletarIngrediente(@PathVariable Long id) {
+	public ResponseEntity<String> deletarIngrediente(@PathVariable Long id) {
 		try {
-		ingredienteRepositorio.delete(id);
+		servicoIngrediente.remover(id);
 		return new ResponseEntity<String>(HttpStatus.OK);
 		
 		} catch (Exception ex ) {
@@ -81,8 +80,8 @@ public class IngredienteController {
 	//caso queira que todos os metodos retornem reponseBody adicionar a anotacao @RestController na classe
 	@RequestMapping(method=RequestMethod.GET, value="/{id}")
 	@ResponseBody
-	public Ingrediente pesquisarIngrediente(@PathVariable Long id) {
-		Ingrediente ingrediente = ingredienteRepositorio.findOne(id);
+	public Ingrediente buscarIngrediente(@PathVariable Long id) {
+		Ingrediente ingrediente = servicoIngrediente.buscar(id);
 		return ingrediente;
 	}
 	
