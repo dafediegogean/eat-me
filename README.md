@@ -1,4 +1,4 @@
-<h1> eatMe </ h1>
+<h1> eatMe </h1>
 
 Development of Java Web system for quick and easy registration of Pizzerias and their management of menus and submenus.
 
