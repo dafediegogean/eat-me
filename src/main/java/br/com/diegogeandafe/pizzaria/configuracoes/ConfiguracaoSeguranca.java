@@ -38,11 +38,11 @@ public class ConfiguracaoSeguranca extends WebSecurityConfigurerAdapter {
 				.anyRequest().permitAll()
 			.and()
 				.formLogin()
-				.loginPage("/login.jsp")
+				.loginPage("/login")
 				.loginProcessingUrl("/autenticar")
 				.defaultSuccessUrl("/app/pizzas")
 				//autenticacao caso o usuario ou senha seja incorreta
-				.failureUrl("/login.jsp?semacesso=true")
+				.failureUrl("/login?semacesso=true")
 				//passando parametro de usuario
 				.usernameParameter("usuario")
 				//passando parametro de senha
@@ -50,7 +50,7 @@ public class ConfiguracaoSeguranca extends WebSecurityConfigurerAdapter {
 			.and()
 				.logout()
 					.logoutUrl("/sair")
-					.logoutSuccessUrl("/login.jsp?saiu=true");
+					.logoutSuccessUrl("/app/login?saiu=true");
 				
 	}
 	

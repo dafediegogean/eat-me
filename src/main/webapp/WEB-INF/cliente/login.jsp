@@ -18,8 +18,7 @@
 		width: 400px !important;
 		margin-left: auto !important;
 		margin-right: auto !important;
-		margin-top: 100px !important;
-		
+		margin-top: 100px !important;	
 	}
 	
 	#btn-login{
@@ -63,9 +62,7 @@
  		</form>
 	</section>
 
-
-
-		<script type="text/javascript" src="${path}/static/js/jquery-2.1.3.min.js"></script>
-		<script type="text/javascript" src="${path}/static/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="${path}/static/js/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript" src="${path}/static/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
